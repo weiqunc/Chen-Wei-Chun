@@ -1,0 +1,131 @@
+*{
+	padding :0;
+	margin :0;
+
+}
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+header{
+	height: 50px;
+	width: 100%;
+    background-color: rgb(49, 49, 49);
+    z-index: 1;
+    position: fixed;
+}
+
+header a{
+	color: #ffffff;
+}
+
+
+header h3{
+    position: fixed;
+	left: 4vw;
+	line-height: 50px;
+}
+
+header ul{
+    position: fixed;
+	right: 5vw;
+	top: 0;
+	line-height: 50px;
+
+}
+
+header li{
+	display: inline;
+	margin: 2vw;
+
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}
+div.name{
+    top:250px;
+    position: relative;
+    width: 50%;
+    text-align: center;
+}
+
+div.PictureFrame{
+    background-color:rgb(255, 255, 255);
+	top:50px;
+	height: 600px;
+	width: 35%;
+	position: relative; 
+}
+
+.intro{
+    background-color: rgb(255, 255, 255);
+}
+
+div.info{
+    background-color:rgb(255, 255, 255);
+    top: 70px;
+	height: 180px;
+	width: 80%;
+	position: relative; 
+    left: 10%;
+}
+
+
+div.about{
+    background-color:rgb(255, 255, 255);
+	height: 350px;
+	width: 80%;
+	position: relative; 
+    left: 10%;
+}
+
+.intro ul{
+    position: relative;
+    top: 30px;
+    left: 30px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.public{
+
+    background-color: rgb(255, 255, 255);
+}
+
+div.Publications{
+    background-color:rgb(255, 255, 255);
+	height: 350px;
+	width: 80%;
+	position: relative; 
+    left: 10%;
+    top:70px
+}
+
+.public ol{
+    position: relative;
+    top: 30px;
+    left: 30px;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+footer{
+    background-color: rgb(0, 0, 0);
+}
+
+footer p{
+    position: relative;
+    top:48%;
+    font-size: 15px;
+    left: 38%;
+    display: inline;
+
+}
+
+
+
