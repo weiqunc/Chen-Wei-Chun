@@ -2,84 +2,116 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="device-width, initial-scale=1.0">
-    <title>Wei Chun, Chen</title>
-	<link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information.">
+    <meta name="theme-color" content="#202020">
+    <meta name="author" content="Wei-Chun Chen">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Wei-Chun Chen | NTU Math">
+    <meta property="og:description" content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information.">
+    <title>Wei-Chun Chen | NTU Math</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-	<header>
-		<h3 style="text-align:center; color:rgb(255, 255, 255)"> Wei-Chun Chen </h3>
-        <button class="menu">&#9776;</button>
-		<nav>
-			<ul><center>
-				<li><a href="#HOME">HOME</li></a>
-				<li><a href="#INTRODUCE">INTRODUCE</li></a>
-				<li><a href="#PUBLICATIONS">PUBLICATIONS</li></a>
-				<li><a href="#CONTACT">CONTACT</a></li></a>
-			</center></ul>
-		</nav>
-	</header>
-    <main>
-        <section style="height: 600px; " id="HOME" class="title">
-
-            <div class="name">
-                <h1 style="font-family: 微軟正黑體;font-weight: 350;"> 
-                    Wei Chun, Chen
-                </h1>
-                <h1 style="font-family: 微軟正黑體;font-weight: 350;"> 
-                    陳偉群
-                </h1>
-                <h2 style="top: 20px; position: relative;">
-                    NTU Math
-                </h2>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="site-header">
+        <div class="header-content">
+            <a class="site-name" href="#HOME">Wei-Chun Chen</a>
+            <div class="header-controls">
+                <select id="theme-select" aria-label="Color theme" title="Color theme" hidden>
+                    <option value="system">System</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+                <button class="menu" type="button" aria-controls="primary-navigation" aria-expanded="false" hidden>
+                    <span aria-hidden="true">☰</span>
+                    <span class="visually-hidden">Open menu</span>
+                </button>
             </div>
-            <div class="PictureFrame">
-                <img src="64744.jpg" alt="個人照" 
-				style="width: 64%;margin: 18%; ;position:relative">
+            <nav id="primary-navigation" aria-label="Primary navigation">
+                <ul>
+                    <li><a href="#HOME">HOME</a></li>
+                    <li><a href="#INTRODUCE">INTRODUCE</a></li>
+                    <li><a href="#PUBLICATIONS">PUBLICATIONS</a></li>
+                    <li><a href="#CONTACT">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main id="main-content" tabindex="-1">
+        <section id="HOME" class="hero" aria-labelledby="page-title" tabindex="-1">
+            <div class="hero-copy">
+                <p class="eyebrow">National Taiwan University · Mathematics</p>
+                <h1 id="page-title">Wei Chun, Chen <span lang="zh-Hant">陳偉群</span></h1>
+                <p class="hero-subtitle">NTU Math</p>
+                <a class="contact-link" href="#CONTACT">Get in touch <span aria-hidden="true">↗</span></a>
             </div>
-        </section>
-        <section style="height: 540px; " id="INTRODUCE" class="intro">
-            <div class="info">
-                <p style=" font-size: 15px; font-family: 微軟正黑體">
-                    I am a mathematics student at National Taiwan University (臺灣大學). I graduated from the Science Class at Changhua Senior High School (彰化高中). Feel free to contact me at <a href="mailto:weiqunc493@gmail.com">weiqunc493@gmail.com</a> if you have any questions.
-                </p>
-            </div>
-            <div class="about">
-                <h2 style=" font-size: 25px; font-style: bold;">
-                    About me
-                </h2>
-                <nav>
-                    <ul>
-                        <li>2022/3/19 Admitted to Science Class at Changhua Senior High School</li>
-                        <li>2022/8/12 National Primary & High School Science Fair, Junior High School — Third Prize</li>
-                        <li>2023/2/10 Taiwan International Science Fair — Fourth Prize</li>
-                        <li>2024/8/23 National Primary & High School Science Fair, Senior High School  — Third Prize</li>
-                        <li>2024/8/30 Served as the Coordinator of the Project Presentation for Changhua Senior High School Science Class</li>
-                        <li>2024/12/7 National High School Student Academic Competence Contest, Mathematics — Third Prize</li>
-                        <li>2024/12/23 Admitted to Math department, National Taiwan University</li>
-                        <li>2025/1/20 Taiwan International Science Fair — Shortlisted</li>
-                    </ul>
-                </nav>
+            <div class="portrait">
+                <picture>
+                    <source srcset="portrait.webp" type="image/webp">
+                    <img src="64744.jpg" alt="Portrait of Wei-Chun Chen" width="2434" height="3408" fetchpriority="high">
+                </picture>
             </div>
         </section>
-        <section style="height: 1000px; " id="PUBLICATIONS" class="public">
-            <div class="Publications">
-                <h2 style=" font-size: 25px; font-style: bold;">
-                    Publications: 
-                </h2>
-                <nav>
-                    <ol>
-                        <li> Equiangular lines handout by Gary Greaves. <a href="https://drive.google.com/file/d/1_7NSfX1gOW4TreLRIiZZAoz_gPY36IGa/view?usp=sharing" target="_blank">Equiangular lines by Gary Greaves.pdf</a></li>
-                    </ol>
-                </nav>
+        <section id="INTRODUCE" class="section introduction" aria-labelledby="about-title" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">INTRODUCE</p>
+                <h2 id="about-title">About me</h2>
+            </div>
+            <div class="section-body">
+                <p class="intro-text">I am a mathematics student at National Taiwan University (<span lang="zh-Hant">臺灣大學</span>). I graduated from the Science Class at Changhua Senior High School (<span lang="zh-Hant">彰化高中</span>). Feel free to contact me at <a href="mailto:weiqunc493@gmail.com">weiqunc493@gmail.com</a> if you have any questions.</p>
+                <ul class="milestones">
+                    <li><time datetime="2022-03-19">2022/3/19</time><span>Admitted to Science Class at Changhua Senior High School</span></li>
+                    <li><time datetime="2022-08-12">2022/8/12</time><span>National Primary &amp; High School Science Fair, Junior High School — Third Prize</span></li>
+                    <li><time datetime="2023-02-10">2023/2/10</time><span>Taiwan International Science Fair — Fourth Prize</span></li>
+                    <li><time datetime="2024-08-23">2024/8/23</time><span>National Primary &amp; High School Science Fair, Senior High School — Third Prize</span></li>
+                    <li><time datetime="2024-08-30">2024/8/30</time><span>Served as the Coordinator of the Project Presentation for Changhua Senior High School Science Class</span></li>
+                    <li><time datetime="2024-12-07">2024/12/7</time><span>National High School Student Academic Competence Contest, Mathematics — Third Prize</span></li>
+                    <li><time datetime="2024-12-23">2024/12/23</time><span>Admitted to Math department, National Taiwan University</span></li>
+                    <li><time datetime="2025-01-20">2025/1/20</time><span>Taiwan International Science Fair — Shortlisted</span></li>
+                </ul>
+            </div>
+        </section>
+        <section id="PUBLICATIONS" class="section publications" aria-labelledby="publications-title" tabindex="-1">
+            <div class="section-heading">
+                <p class="eyebrow">READING &amp; RESOURCES</p>
+                <h2 id="publications-title">Publications</h2>
+            </div>
+            <div class="section-body">
+                <ol class="resources">
+                    <li>
+                        <h3>Equiangular lines</h3>
+                        <p>Handout by Gary Greaves.</p>
+                        <a href="https://drive.google.com/file/d/1_7NSfX1gOW4TreLRIiZZAoz_gPY36IGa/view?usp=sharing" target="_blank" rel="noopener noreferrer">Equiangular lines by Gary Greaves.pdf <span class="external-note">(opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+                    </li>
+                </ol>
             </div>
         </section>
     </main>
-    <footer style="height: 100px; " id="CONTACT" class="contact">
-        <a href="https://www.instagram.com/wn_10.17_/">Instagram : wn_10.17_</a>
-        <a href="https://www.facebook.com/profile.php?id=100022073732968">Facebook : 陳偉群</a>
-        <!-- <p style="color: white; font-family: 微軟正黑體"><a href="https://www.instagram.com/wn_10.17_/">Instagram : wn_10.17_</a></p>
-        <p> <a href="https://www.facebook.com/profile.php?id=100022073732968">Facebook : 陳偉群</a></p> -->
+    <footer id="CONTACT" class="contact" aria-labelledby="contact-title" tabindex="-1">
+        <div class="footer-content">
+            <div>
+                <p class="eyebrow">CONTACT</p>
+                <h2 id="contact-title">Get in touch</h2>
+                <div class="email-actions">
+                    <a class="email" href="mailto:weiqunc493@gmail.com">weiqunc493@gmail.com</a>
+                    <button class="copy-email" type="button" aria-describedby="copy-status" hidden>Copy email</button>
+                </div>
+                <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+                <div class="copy-fallback" hidden>
+                    <label for="email-to-copy">Email address — select and copy</label>
+                    <input id="email-to-copy" type="text" value="weiqunc493@gmail.com" readonly aria-describedby="copy-status" spellcheck="false">
+                </div>
+            </div>
+            <nav aria-label="Social profiles">
+                <ul>
+                    <li><a href="https://www.instagram.com/wn_10.17_/">Instagram : wn_10.17_ <span aria-hidden="true">↗</span></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100022073732968">Facebook : <span lang="zh-Hant">陳偉群</span> <span aria-hidden="true">↗</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </footer>
 </body>
 </html>
