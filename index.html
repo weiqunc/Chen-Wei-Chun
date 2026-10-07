@@ -1,117 +1,307 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information.">
-    <meta name="theme-color" content="#202020">
-    <meta name="author" content="Wei-Chun Chen">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Wei-Chun Chen | NTU Math">
-    <meta property="og:description" content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information."
+    />
+    <meta name="theme-color" content="#202020" />
+    <meta name="author" content="Wei-Chun Chen" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Wei-Chun Chen | NTU Math" />
+    <meta
+      property="og:description"
+      content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information."
+    />
     <title>Wei-Chun Chen | NTU Math</title>
-    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any">
-    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
     <header class="site-header">
-        <div class="header-content">
-            <a class="site-name" href="#HOME">Wei-Chun Chen</a>
-            <div class="header-controls">
-                <select id="theme-select" aria-label="Color theme" title="Color theme" hidden>
-                    <option value="system">System</option>
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-                <button class="menu" type="button" aria-controls="primary-navigation" aria-expanded="false" hidden>
-                    <span aria-hidden="true">☰</span>
-                    <span class="visually-hidden">Open menu</span>
-                </button>
-            </div>
-            <nav id="primary-navigation" aria-label="Primary navigation">
-                <ul>
-                    <li><a href="#HOME">HOME</a></li>
-                    <li><a href="#INTRODUCE">INTRODUCE</a></li>
-                    <li><a href="#PUBLICATIONS">PUBLICATIONS</a></li>
-                    <li><a href="#CONTACT">CONTACT</a></li>
-                </ul>
-            </nav>
+      <div class="header-content">
+        <a class="site-name" href="#HOME">Wei-Chun Chen</a>
+        <div class="header-controls">
+          <select
+            id="theme-select"
+            aria-label="Color theme"
+            title="Color theme"
+            hidden
+          >
+            <option value="system">System</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+          <button
+            class="menu"
+            type="button"
+            aria-controls="primary-navigation"
+            aria-expanded="false"
+            hidden
+          >
+            <span aria-hidden="true">☰</span>
+            <span class="visually-hidden">Open menu</span>
+          </button>
         </div>
+        <nav id="primary-navigation" aria-label="Primary navigation">
+          <ul>
+            <li><a href="#HOME">HOME</a></li>
+            <li><a href="#INTRODUCE">INTRODUCE</a></li>
+            <li><a href="#PUBLICATIONS">PUBLICATIONS</a></li>
+            <li><a href="#CONTACT">CONTACT</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
     <main id="main-content" tabindex="-1">
-        <section id="HOME" class="hero" aria-labelledby="page-title" tabindex="-1">
-            <div class="hero-copy">
-                <p class="eyebrow">National Taiwan University · Mathematics</p>
-                <h1 id="page-title">Wei Chun, Chen <span lang="zh-Hant">陳偉群</span></h1>
-                <p class="hero-subtitle">NTU Math</p>
-                <a class="contact-link" href="#CONTACT">Get in touch <span aria-hidden="true">↗</span></a>
-            </div>
-            <div class="portrait">
-                <picture>
-                    <source srcset="portrait.webp" type="image/webp">
-                    <img src="64744.jpg" alt="Portrait of Wei-Chun Chen" width="2434" height="3408" fetchpriority="high">
-                </picture>
-            </div>
-        </section>
-        <section id="INTRODUCE" class="section introduction" aria-labelledby="about-title" tabindex="-1">
-            <div class="section-heading">
-                <p class="eyebrow">INTRODUCE</p>
-                <h2 id="about-title">About me</h2>
-            </div>
-            <div class="section-body">
-                <p class="intro-text">I am a mathematics student at National Taiwan University (<span lang="zh-Hant">臺灣大學</span>). I graduated from the Science Class at Changhua Senior High School (<span lang="zh-Hant">彰化高中</span>). Feel free to contact me at <a href="mailto:weiqunc493@gmail.com">weiqunc493@gmail.com</a> if you have any questions.</p>
-                <ul class="milestones">
-                    <li><time datetime="2022-03-19">2022/3/19</time><span>Admitted to Science Class at Changhua Senior High School</span></li>
-                    <li><time datetime="2022-08-12">2022/8/12</time><span>National Primary &amp; High School Science Fair, Junior High School — Third Prize</span></li>
-                    <li><time datetime="2023-02-10">2023/2/10</time><span>Taiwan International Science Fair — Fourth Prize</span></li>
-                    <li><time datetime="2024-08-23">2024/8/23</time><span>National Primary &amp; High School Science Fair, Senior High School — Third Prize</span></li>
-                    <li><time datetime="2024-08-30">2024/8/30</time><span>Served as the Coordinator of the Project Presentation for Changhua Senior High School Science Class</span></li>
-                    <li><time datetime="2024-12-07">2024/12/7</time><span>National High School Student Academic Competence Contest, Mathematics — Third Prize</span></li>
-                    <li><time datetime="2024-12-23">2024/12/23</time><span>Admitted to Math department, National Taiwan University</span></li>
-                    <li><time datetime="2025-01-20">2025/1/20</time><span>Taiwan International Science Fair — Shortlisted</span></li>
-                </ul>
-            </div>
-        </section>
-        <section id="PUBLICATIONS" class="section publications" aria-labelledby="publications-title" tabindex="-1">
-            <div class="section-heading">
-                <p class="eyebrow">READING &amp; RESOURCES</p>
-                <h2 id="publications-title">Publications</h2>
-            </div>
-            <div class="section-body">
-                <ol class="resources">
-                    <li>
-                        <h3>Equiangular lines</h3>
-                        <p>Handout by Gary Greaves.</p>
-                        <a href="https://drive.google.com/file/d/1_7NSfX1gOW4TreLRIiZZAoz_gPY36IGa/view?usp=sharing" target="_blank" rel="noopener noreferrer">Equiangular lines by Gary Greaves.pdf <span class="external-note">(opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
-                    </li>
-                </ol>
-            </div>
-        </section>
-    </main>
-    <footer id="CONTACT" class="contact" aria-labelledby="contact-title" tabindex="-1">
-        <div class="footer-content">
-            <div>
-                <p class="eyebrow">CONTACT</p>
-                <h2 id="contact-title">Get in touch</h2>
-                <div class="email-actions">
-                    <a class="email" href="mailto:weiqunc493@gmail.com">weiqunc493@gmail.com</a>
-                    <button class="copy-email" type="button" aria-describedby="copy-status" hidden>Copy email</button>
-                </div>
-                <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
-                <div class="copy-fallback" hidden>
-                    <label for="email-to-copy">Email address — select and copy</label>
-                    <input id="email-to-copy" type="text" value="weiqunc493@gmail.com" readonly aria-describedby="copy-status" spellcheck="false">
-                </div>
-            </div>
-            <nav aria-label="Social profiles">
-                <ul>
-                    <li><a href="https://www.instagram.com/wn_10.17_/">Instagram : wn_10.17_ <span aria-hidden="true">↗</span></a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=100022073732968">Facebook : <span lang="zh-Hant">陳偉群</span> <span aria-hidden="true">↗</span></a></li>
-                </ul>
-            </nav>
+      <section
+        id="HOME"
+        class="hero"
+        aria-labelledby="page-title"
+        tabindex="-1"
+      >
+        <div class="hero-copy">
+          <p class="eyebrow">National Taiwan University · Mathematics</p>
+          <h1 id="page-title">
+            Wei Chun, Chen <span lang="zh-Hant">陳偉群</span>
+          </h1>
+          <p class="hero-subtitle">NTU Math</p>
+          <a class="contact-link" href="#CONTACT"
+            >Get in touch <span aria-hidden="true">↗</span></a
+          >
         </div>
+        <div class="portrait">
+          <picture>
+            <source srcset="portrait.webp" type="image/webp" />
+            <img
+              src="64744.jpg"
+              alt="Portrait of Wei-Chun Chen"
+              width="2434"
+              height="3408"
+              fetchpriority="high"
+            />
+          </picture>
+        </div>
+      </section>
+      <section
+        id="INTRODUCE"
+        class="section introduction"
+        aria-labelledby="about-title"
+        tabindex="-1"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">INTRODUCE</p>
+          <h2 id="about-title">About me</h2>
+        </div>
+        <div class="section-body">
+          <p class="intro-text">
+            I am a mathematics student at National Taiwan University (<span
+              lang="zh-Hant"
+              >臺灣大學</span
+            >). Feel free to contact me at
+            <a href="mailto:weiqunc493@gmail.com">weiqunc493@gmail.com</a> if
+            you have any questions.
+          </p>
+          <ul class="milestones">
+            <li>
+              <time datetime="2025-09-01">2025/09/01</time
+              ><span
+                >Admitted to Math department, National Taiwan University</span
+              >
+              <time datetime="2026-07-06">2026/07/06</time
+              ><span
+                >Undertake 2026 Undergraduate Summer Research Program, National
+                Center for Theoretical Sciences
+              </span>
+              <time datetime="2026-10-01">2026/10/01</time
+              ><span
+                >Undertake 2026 Undergraduate Research Program, National Center
+                for Theoretical Sciences
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section
+        id="PUBLICATIONS"
+        class="section publications"
+        aria-labelledby="publications-title"
+        tabindex="-1"
+      >
+        <div class="section-heading">
+          <p class="eyebrow">READING &amp; RESOURCES</p>
+          <h2 id="publications-title">Publications</h2>
+        </div>
+        <div class="section-body">
+          <ol class="resources">
+            <li>
+              <!-- <h3>Equiangular lines</h3>
+              <p>Handout by Gary Greaves.</p>
+              <a
+                href="https://drive.google.com/file/d/1_7NSfX1gOW4TreLRIiZZAoz_gPY36IGa/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Equiangular lines by Gary Greaves.pdf
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              > -->
+              <h3>The Exact Comass Criterion for the Tsai--Wang Form</h3>
+              <p><strong>Wei-Chun Chen</strong>, Chun-Kai Lien.</p>
+
+              <a
+                href="https://arxiv.org/abs/2609.39159"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://arxiv.org/abs/2609.39159
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <h3>
+                The Jacobi Spectrum and Global Second Variation of Pansu Spheres
+              </h3>
+              <p>
+                <strong>Wei-Chun Chen</strong>, Wei-Ting Kao, and Chun-Kai Lien.
+              </p>
+              <a
+                href="https://arxiv.org/abs/2610.03899"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://arxiv.org/abs/2610.03899
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <h3>Stable Rigidity in the Heisenberg Groups</h3>
+              <p>
+                <strong>Wei-Chun Chen</strong>, Wei-Ting Kao, and Chun-Kai Lien.
+              </p>
+              <a
+                href="https://arxiv.org/abs/2610.03900"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://arxiv.org/abs/2610.03900
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <h3>
+                Quantitative Centre Rigidity under Riemannian Approximation in
+                Heisenberg Groups
+              </h3>
+              <p>
+                <strong>Wei-Chun Chen</strong>, Wei-Ting Kao, and Chun-Kai Lien.
+              </p>
+              <a
+                href="https://arxiv.org/abs/2610.03904"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://arxiv.org/abs/2610.03904
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <h3>
+                The Isoperimetric Inequality in Higher-Dimensional Heisenberg
+                Groups
+              </h3>
+              <p>
+                <strong>Wei-Chun Chen</strong>, Wei-Ting Kao, and Chun-Kai Lien.
+              </p>
+              <a
+                href="https://arxiv.org/abs/2610.03905"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://arxiv.org/abs/2610.03905
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <h3>
+                The Sharp Isoperimetric Inequality in the First Heisenberg Group
+              </h3>
+              <p>
+                <strong>Wei-Chun Chen</strong>, Wei-Ting Kao, and Chun-Kai Lien.
+              </p>
+              <a
+                href="https://arxiv.org/abs/2610.07632"
+                target="_blank"
+                rel="noopener noreferrer"
+                >https://arxiv.org/abs/2610.07632
+                <span class="external-note">(opens in a new tab)</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+    <footer
+      id="CONTACT"
+      class="contact"
+      aria-labelledby="contact-title"
+      tabindex="-1"
+    >
+      <div class="footer-content">
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <h2 id="contact-title">Get in touch</h2>
+          <div class="email-actions">
+            <a class="email" href="mailto:weiqunc493@gmail.com"
+              >weiqunc493@gmail.com</a
+            >
+            <button
+              class="copy-email"
+              type="button"
+              aria-describedby="copy-status"
+              hidden
+            >
+              Copy email
+            </button>
+          </div>
+          <p
+            id="copy-status"
+            class="copy-status"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <div class="copy-fallback" hidden>
+            <label for="email-to-copy">Email address — select and copy</label>
+            <input
+              id="email-to-copy"
+              type="text"
+              value="weiqunc493@gmail.com"
+              readonly
+              aria-describedby="copy-status"
+              spellcheck="false"
+            />
+          </div>
+        </div>
+        <nav aria-label="Social profiles">
+          <ul>
+            <li>
+              <a href="https://www.instagram.com/wn_10.17_/"
+                >Instagram : wn_10.17_ <span aria-hidden="true">↗</span></a
+              >
+            </li>
+            <li>
+              <a href="https://www.facebook.com/profile.php?id=100022073732968"
+                >Facebook : <span lang="zh-Hant">陳偉群</span>
+                <span aria-hidden="true">↗</span></a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
