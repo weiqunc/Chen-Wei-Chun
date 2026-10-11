@@ -34,7 +34,10 @@
   box-sizing: border-box;
 }
 html {
-  scroll-padding-top: 6rem;
+  scroll-padding-top: calc(var(--header-height, 4.5rem) + 1.5rem);
+}
+html:not(.js) {
+  scroll-padding-top: 1.5rem;
 }
 body {
   margin: 0;
@@ -45,6 +48,7 @@ body {
     sans-serif;
   font-size: 1rem;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 a {
   color: inherit;
@@ -110,6 +114,7 @@ input {
   margin: auto;
   padding: 0.75rem 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
@@ -122,6 +127,16 @@ input {
 }
 .site-header nav {
   order: 2;
+  min-width: 0;
+  max-width: 100%;
+}
+html:not(.js) .site-header {
+  position: static;
+}
+@media (max-height: 480px) {
+  .site-header {
+    position: static;
+  }
 }
 .header-controls {
   order: 3;
@@ -381,7 +396,7 @@ h1 span {
     scroll-padding-top: 10rem;
   }
   html.js {
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: calc(var(--header-height, 4rem) + 1.5rem);
   }
   .header-content {
     padding: 0.65rem 1rem;
@@ -391,6 +406,7 @@ h1 span {
   }
   .site-name {
     font-size: 1rem;
+    white-space: normal;
   }
   .header-controls {
     order: 2;
@@ -411,6 +427,10 @@ h1 span {
   }
   .js .site-header nav.is-open {
     display: block;
+    padding: 8px;
+    max-height: calc(100dvh - var(--header-controls-height, 4rem));
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
   .menu:not([hidden]) {
     display: inline-flex;
@@ -481,14 +501,27 @@ h1 span {
     font-size: 10pt;
   }
   .hero {
-    padding: 1rem 0;
+    grid-template-columns: 1.2fr 1fr;
+    padding: 0 0 1rem;
     gap: 2rem;
+    break-inside: avoid;
   }
   .portrait {
     max-width: 140px;
   }
   h1 {
     font-size: 25pt;
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: 16pt;
+  }
+  .hero-subtitle {
+    margin-bottom: 0;
+  }
+  .intro-text {
+    font-size: 10pt;
+    margin-bottom: 1rem;
   }
   .section {
     margin: 0;
@@ -497,13 +530,34 @@ h1 span {
     gap: 1.5rem;
   }
   .milestones li {
+    grid-template-columns: 6.5rem 1fr;
+    gap: 1rem;
+    padding: 0.6rem 0;
     break-inside: avoid;
+  }
+  .resources li {
+    break-inside: avoid;
+  }
+  .resources h3 {
+    font-size: 11.5pt;
+    line-height: 1.4;
+    margin-bottom: 0.3rem;
+    break-after: avoid;
+  }
+  .resources p {
+    margin-bottom: 0.4rem;
+  }
+  .external-note {
+    display: none;
   }
   .contact {
     background: white;
     color: black;
+    break-inside: avoid;
   }
   .footer-content {
+    flex-direction: row;
+    align-items: flex-start;
     padding: 1rem 0;
   }
   .contact .eyebrow {

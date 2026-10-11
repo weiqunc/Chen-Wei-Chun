@@ -22,9 +22,21 @@ function initNavigation() {
     document.addEventListener("pointerdown", event => { lastInteractionTarget = event.target; });
 
     function setMenuOpen(open) {
+        open = open && mobileLayout.matches;
         menu.setAttribute("aria-expanded", String(open));
         navigation.classList.toggle("is-open", open);
         if (menuLabel) menuLabel.textContent = open ? "Close menu" : "Open menu";
+        syncHeaderDimensions();
+    }
+
+    function syncHeaderDimensions() {
+        if (!header) return;
+        const height = header.getBoundingClientRect().height;
+        const navigationHeight = mobileLayout.matches && navigation.classList.contains("is-open")
+            ? navigation.getBoundingClientRect().height : 0;
+        const stickyHeight = getComputedStyle(header).position === "sticky" ? height : 0;
+        document.documentElement.style.setProperty("--header-height", `${stickyHeight}px`);
+        document.documentElement.style.setProperty("--header-controls-height", `${height - navigationHeight}px`);
     }
 
     function setCurrentSection(id) {
@@ -36,7 +48,7 @@ function initNavigation() {
 
     function updateCurrentSection() {
         if (manualTarget || sections.length === 0) return;
-        const readingLine = (header?.getBoundingClientRect().bottom || 0) + 32;
+        const readingLine = Math.max(0, header?.getBoundingClientRect().bottom || 0) + 32;
         let current = sections[0];
         for (const section of sections) {
             if (section.getBoundingClientRect().top <= readingLine) current = section;
@@ -79,6 +91,15 @@ function initNavigation() {
     navigation.addEventListener("click", event => {
         if (event.target.closest("a")) setMenuOpen(false);
     });
+    document.addEventListener("focusin", event => {
+        if (mobileLayout.matches && navigation.classList.contains("is-open") && !header?.contains(event.target)) {
+            setMenuOpen(false);
+        }
+        const focusedSection = sections.find(section => section.contains(event.target));
+        if (manualTarget && focusedSection && focusedSection.id !== manualTarget) {
+            markManualSelection(focusedSection.id);
+        }
+    });
 
     document.addEventListener("keydown", event => {
         if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") {
@@ -113,6 +134,10 @@ function initNavigation() {
         const id = window.location.hash.slice(1);
         if (sections.some(section => section.id === id)) markManualSelection(id);
         else releaseManualSelection();
+        const target = document.getElementById(id || "HOME");
+        if (target && (sections.includes(target) || target.id === "main-content")) {
+            target.focus({ preventScroll: true });
+        }
     });
     window.addEventListener("scroll", () => {
         if (manualTarget && manualSettled && Math.abs(window.scrollY - settledScrollY) > 2) {
@@ -131,7 +156,16 @@ function initNavigation() {
     };
     window.addEventListener("wheel", releaseOnScrollGesture, { passive: true });
     window.addEventListener("touchmove", releaseOnScrollGesture, { passive: true });
-    window.addEventListener("resize", queueCurrentUpdate);
+    window.addEventListener("resize", () => {
+        syncHeaderDimensions();
+        queueCurrentUpdate();
+    });
+    if (typeof window.ResizeObserver === "function" && header) {
+        new ResizeObserver(() => {
+            syncHeaderDimensions();
+            queueCurrentUpdate();
+        }).observe(header);
+    }
     if (typeof window.IntersectionObserver === "function") {
         const observer = new IntersectionObserver(queueCurrentUpdate, { threshold: [0, 0.1, 0.5, 1] });
         for (const section of sections) observer.observe(section);
@@ -139,6 +173,7 @@ function initNavigation() {
 
     menu.hidden = false;
     document.documentElement.classList.add("js");
+    requestAnimationFrame(syncHeaderDimensions);
     markManualSelection(window.location.hash.slice(1));
     queueCurrentUpdate();
 }
@@ -170,6 +205,9 @@ function initTheme() {
     });
     window.addEventListener("storage", event => {
         if (event.key !== storageKey && event.key !== null) return;
+        try {
+            if (event.storageArea !== localStorage) return;
+        } catch { return; }
         preference = themes.includes(event.newValue) ? event.newValue : "system";
         applyTheme();
     });
@@ -190,28 +228,60 @@ function initEmailCopy() {
     input.addEventListener("click", () => input.select());
 
     button.addEventListener("click", async () => {
+        const initialFocus = document.activeElement;
         const buttonHadFocus = document.activeElement === button;
+        const contact = document.getElementById("CONTACT");
+        const mayMoveFocus = () => {
+            const rect = contact?.getBoundingClientRect();
+            return rect && rect.top < innerHeight && rect.bottom > 0
+                && [initialFocus, button, document.body].includes(document.activeElement);
+        };
+        let copyTimer;
         button.disabled = true;
         button.setAttribute("aria-busy", "true");
         try {
             if (!navigator.clipboard?.writeText) throw new Error("Clipboard unavailable");
-            await navigator.clipboard.writeText(email);
+            await Promise.race([
+                navigator.clipboard.writeText(email),
+                new Promise((_, reject) => {
+                    copyTimer = setTimeout(() => reject(new Error("Clipboard timeout")), 30000);
+                })
+            ]);
             fallback.hidden = true;
             status.textContent = "Email address copied.";
         } catch {
             fallback.hidden = false;
-            input.focus();
-            input.select();
-            status.textContent = "Email selected. Press Ctrl+C or ⌘C to copy, or touch and hold on mobile.";
+            if (mayMoveFocus()) {
+                input.focus();
+                input.select();
+                status.textContent = "Email selected. Press Ctrl+C or ⌘C to copy, or touch and hold on mobile.";
+            } else {
+                status.textContent = "Copy unavailable. Select the email address below to copy.";
+            }
         } finally {
+            clearTimeout(copyTimer);
             button.disabled = false;
             button.removeAttribute("aria-busy");
-            if (buttonHadFocus && document.activeElement === document.body) button.focus({ preventScroll: true });
+            if (buttonHadFocus && document.activeElement === document.body && mayMoveFocus()) button.focus({ preventScroll: true });
         }
     });
     button.hidden = false;
 }
 
+function initPortraitFallback() {
+    const image = document.querySelector(".portrait img");
+    if (!image) return;
+    const recover = () => {
+        const sources = [...image.closest("picture").querySelectorAll("source")];
+        if (!sources.length) return;
+        sources.forEach(source => source.remove());
+        image.src = image.getAttribute("src");
+    };
+    image.addEventListener("error", recover);
+    if (image.complete && image.naturalWidth === 0) recover();
+}
+
 initNavigation();
 initTheme();
 initEmailCopy();
+initPortraitFallback();

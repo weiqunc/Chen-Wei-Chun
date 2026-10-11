@@ -16,6 +16,18 @@
       content="Wei-Chun Chen, a mathematics student at National Taiwan University. About me, publications, and contact information."
     />
     <title>Wei-Chun Chen | NTU Math</title>
+    <script>
+      // Apply an explicit saved theme before CSS paints the page.
+      try {
+        const savedTheme = localStorage.getItem("chenwei-theme");
+        if (savedTheme === "light" || savedTheme === "dark") {
+          document.documentElement.dataset.theme = savedTheme;
+          if (savedTheme === "dark") {
+            document.querySelector('meta[name="theme-color"]').content = "#242424";
+          }
+        }
+      } catch { /* CSS follows the system theme when storage is blocked. */ }
+    </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -112,11 +124,15 @@
               ><span
                 >Admitted to Math department, National Taiwan University</span
               >
+            </li>
+            <li>
               <time datetime="2026-07-06">2026/07/06</time
               ><span
                 >Undertake 2026 Undergraduate Summer Research Program, National
                 Center for Theoretical Sciences
               </span>
+            </li>
+            <li>
               <time datetime="2026-10-01">2026/10/01</time
               ><span
                 >Undertake 2026 Undergraduate Research Program, National Center
