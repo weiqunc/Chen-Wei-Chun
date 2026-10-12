@@ -23,10 +23,13 @@
         if (savedTheme === "light" || savedTheme === "dark") {
           document.documentElement.dataset.theme = savedTheme;
           if (savedTheme === "dark") {
-            document.querySelector('meta[name="theme-color"]').content = "#242424";
+            document.querySelector('meta[name="theme-color"]').content =
+              "#242424";
           }
         }
-      } catch { /* CSS follows the system theme when storage is blocked. */ }
+      } catch {
+        /* CSS follows the system theme when storage is blocked. */
+      }
     </script>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" sizes="any" />
     <link rel="stylesheet" href="style.css" />
@@ -81,7 +84,20 @@
           <h1 id="page-title">
             Wei Chun, Chen <span lang="zh-Hant">陳偉群</span>
           </h1>
-          <p class="hero-subtitle">NTU Math</p>
+          <p class="hero-subtitle">
+            <a
+              style="text-decoration-line: none"
+              target="_blank"
+              href="https://www.ntu.edu.tw"
+              >NTU</a
+            >
+            <a
+              style="text-decoration-line: none"
+              target="_blank"
+              href="https://www.math.ntu.edu.tw"
+              >MATH</a
+            >
+          </p>
           <a class="contact-link" href="#CONTACT"
             >Get in touch <span aria-hidden="true">↗</span></a
           >
